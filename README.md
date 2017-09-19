@@ -4,7 +4,7 @@ sudo easy_install pip
 
 after installing run the following command to install dependencies 
 
-sudo pip install -r requirements.txt
+sudo pip install -r requirement.txt
 
 Now install security to Avoid SSL error for Open API’s
 
