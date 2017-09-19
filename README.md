@@ -1,5 +1,7 @@
 # Basic_automation
 Repo for basic automation 
+
+install pip if its not already installed 
 sudo easy_install pip
 
 after installing run the following command to install dependencies 
