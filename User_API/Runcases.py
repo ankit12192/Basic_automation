@@ -10,3 +10,7 @@ def run_cases():
     objj.update_case_blank_name(2)
     objj.update_blank_job(2)
     objj.delete_user(2)
+
+
+
+run_cases()

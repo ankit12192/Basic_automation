@@ -36,18 +36,12 @@ class user:
         code = req_json.status_code
         data = json.loads(req_json.content)
 
-        if code == 201:
-            flag = 1
+        assert str(code) != 201,"Failed"
         print "\nStatus code is -->" + str(code)
         print "Response is " + str(data)
-        if data['name'] == name and data['job']== job:
-            flag = 1
-        if flag == 0:
-            print "\ncould not create user "
-            print "\nTest case Failed "
-        if flag == 1:
-            print "\nCreate user with the ID "+ data['id']
-            print "\nTest case Passed "
+        assert data['name'] == name and data['job']== job,"Failed"
+        print "\nCreate user with the ID "+ data['id']
+        print "\nTest case Passed "
         print "\n\n---------------End of test case create user-----------------------------"
 
 
@@ -64,9 +58,7 @@ class user:
         req_json = requests.post(url=self.url, data=self.payload)
         code =req_json.status_code
         data = json.loads(req_json.content)
-
-        if code==201:
-            flag =  1
+        assert code!=str(201),"Failed"
         print "\nStatus code is -->"+str(code)
         print "Response is " +str(data)
         if data['name']=='':
@@ -93,8 +85,7 @@ class user:
         req_json = requests.post(url=self.url, data=self.payload)
         code =req_json.status_code
         data = json.loads(req_json.content)
-        if code==201:
-            flag =  1
+        assert str(code)!=201,"Falied"
         print "\nStatus code is -->"+str(code)
         print "Response is " +str(data)
         if data['job']=='':
@@ -145,8 +136,7 @@ class user:
         data= json.loads(update_user.content)
         code = update_user.status_code
         print code
-        if code==200:
-            flag =  1
+        assert str(code)!=200,"Failed"
         print "\nStatus code is -->"+str(code)
         print "Response is " +str(data)
         if data['name']=='':
@@ -174,8 +164,7 @@ class user:
         data = json.loads(update_user.content)
         code = update_user.status_code
         print code
-        if code == 200:
-            flag = 1
+        assert str(code) != 200,"Failed"
         print "\nStatus code is -->" + str(code)
         print "Response is " + str(data)
         if data['job'] == '':
@@ -183,7 +172,6 @@ class user:
         if flag == 0:
             print "\nUpdated A user with blank Job "
             print "\nTest case Failed "
-        if flag == 1:
             print "\nCouldn't update user with a blank Job"
             print "\nTest case Passed "
 
@@ -196,9 +184,7 @@ class user:
         del_user = requests.delete(url=url)
         print del_user.content
         mt =  del_user.status_code
-        if mt == 204:
-            print "Test case Delete user Passed"
-        else:
-            print "Test case delete user failed "
+        print mt
+        assert str(mt) != 204,"Case Failed"
 
-
+        print "Test case Delete user Passed"
